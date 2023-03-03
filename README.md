@@ -32,3 +32,59 @@
 - функциональные тесты;
 - сервис работает в Docker;
 - асинхронные вызовы.
+<h1 align="center">Развертывание проекта</h1>
+<h4>1. Скачать проект</h4>
+  
+
+
+```
+    git clone git@github.com:A-V-tor/test-task-es.git
+    cd test-task-es
+```
+
+<h4>2. Создать виртуальное окружение и установить зависимости</h4>
+
+
+```
+    python3 -m venv venv
+    source venv/bin/activate
+    python3 -m pip install -r requirements.txt
+```
+Или в случае использования <b>poetry</b>
+```
+    poetry shell
+    poetry install
+```
+<h4>3. Установить elasticsearch https://www.elastic.co/downloads/past-releases/elasticsearch-8-6-2 и распаковать архив </h4>
+
+
+```
+    vim elasticsearch-8.6.2/config/elasticsearch.yml
+```
+Установить значение `false` для `xpack.security.enabled: false` </br>
+Запуск elasticsearch </br>
+```
+    cd elasticsearch-8.6.2
+    ./bin/elasticsearch
+```
+Убедиться в работе сервиса `http://localhost:9200/` </br>
+<h4>4. Скачать posts.csv в корень проекта </h4>
+<h4>5. Подготовить бд и индекс для работы</h4>
+
+```
+    cd test-task-es
+    python3 -i fill.py
+```
+Вызвать функцию `fill_data_base()` и дождаться ответа `OK` </br></br>
+<i>бд и индекс наполнятся данными, это займет какое - то время</i> </br>
+<h4>6. Запуск проекта `gunicorn -w 3 -b 0.0.0.0:5000 app:app`</h4>
+
+`http://127.0.0.1:5000/` - страница визуального отображения бд  </br>
+Документация по адресу `http://127.0.0.1:5000/swagger-ui`
+
+<h4>7. Запуск тестов </h4>
+
+`pytest` или `poetry run pytest`
+
+<h3>P.S.</h3>
+<i>В качестве фреймворка - flask</i>
