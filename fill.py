@@ -41,3 +41,6 @@ def fill_data_base():
             db.session.add(document)
 
         db.session.commit()
+      
+    return 'OK'
+    
