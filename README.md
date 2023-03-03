@@ -39,13 +39,13 @@
 
 ```
     git clone git@github.com:A-V-tor/test-task-es.git
-    cd test-task-es
 ```
 
 <h4>2. Создать виртуальное окружение и установить зависимости</h4>
 
 
 ```
+    cd test-task-es
     python3 -m venv venv
     source venv/bin/activate
     python3 -m pip install -r requirements.txt
