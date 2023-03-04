@@ -48,14 +48,20 @@
     cd test-task-es
     python3 -m venv venv
     source venv/bin/activate
-    python3 -m pip install -r requirements.txt
+    
 ```
+`python3 -m pip install -r requirements.txt` </br> </br>
 Или в случае использования <b>poetry</b>
+
+
 ```
+    cd test-task-es
     poetry shell
-    poetry install
+    
 ```
-<h4>3. Установить elasticsearch https://www.elastic.co/downloads/past-releases/elasticsearch-8-6-2 и распаковать архив </h4>
+
+`poetry install`
+<h4>3. Установить elasticsearch https://www.elastic.co/downloads/elasticsearch и распаковать архив </h4>
 
 
 ```
